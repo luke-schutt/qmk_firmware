@@ -21,10 +21,14 @@ enum layer_names {
 
 #define TAB_PRV G(S(DV_LBRC))
 #define TAB_NXT G(S(DV_RBRC))
-#define APP_MAN G(A(KC_ESC))
 #define APP_WIN G(KC_GRV)
 #define LK_SCRN G(C(DV_Q))
 #define SCRNCAP G(S(KC_4))
+
+#define OSM_SFT OSM(MOD_LSFT)
+#define OSM_CTL OSM(MOD_LCTL)
+#define OSM_ALT OSM(MOD_LALT)
+#define OSM_GUI OSM(MOD_LGUI)
 
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -43,13 +47,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	[L_NUM] = LAYOUT(
 		_______, DV_EQL,  KC_7,    KC_8,    KC_9,    DV_LBRC, KC_PGUP,
 		KC_DEL,  DV_MINS, KC_4,    KC_5,    KC_6,    DV_RBRC, KC_HOME,
-		_______, DV_BSLS, KC_1,    KC_2,    KC_3,    KC_0,    KC_PGDN,
+		_______, DV_SCLN, KC_1,    KC_2,    KC_3,    KC_0,    KC_PGDN,
     		_______, _______, _______, _______, LT2_SPC,      KC_END
 	),
 	[L_SYS] = LAYOUT(
 		APP_WIN, KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_VOLU,
-		APP_MAN, KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_MPRV,
-		SCRNCAP, KC_F11,  KC_F12,  TAB_PRV, TAB_NXT, KC_MPLY, KC_VOLD,
-    		_______, _______, _______, _______, _______,      KC_MNXT
+		DV_BSLS, KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_MPRV,
+		OSM_SFT, KC_F11,  KC_F12,  TAB_PRV, TAB_NXT, KC_MPLY, KC_VOLD,
+    		OSM_CTL, OSM_ALT, OSM_GUI, _______, _______,      KC_MNXT
 	)
 };
